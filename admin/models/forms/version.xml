@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+        <fieldset>
+                <field
+                        name="id"
+                        type="hidden"
+                />
+                
+                 <field 
+                        name="idMarca" 
+                        type="hidden" 
+                />
+                
+                
+                <field
+                        name="idModelo"
+                        type="hidden"
+                /> 
+                <field
+                        name="nombre"
+                        type="text"
+                        label="COM_VEHICULO_VERSION_NOMBRE_LABEL"
+                        description="COM_VEHICULO_VERSION_NOMBRE_DESC"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                        required="true"
+                />
+                <field                        
+                        name="idTipo" 
+                        type="sql" 
+                        default="" 
+                        description="COM_VEHICULO_VERSION_IDTIPO_DESC"
+                        label="COM_VEHICULO_VERSION_IDTIPO_LABEL" 
+                        query="SELECT * FROM #__vehiculo_tipos" 
+                        key_field="id" 
+                        value_field="nombre"
+                        
+                />
+                <field                        
+                        name="idCombustible" 
+                        type="sql" 
+                        default="" 
+                        description="COM_VEHICULO_VERSION_IDCOMBUSTIBLE_DESC"
+                        label="COM_VEHICULO_VERSION_IDCOMBUSTIBLE_LABEL" 
+                        query="SELECT * FROM #__vehiculo_combustibles" 
+                        key_field="id" 
+                        value_field="nombre"
+                />
+                <field
+                        name="fecha_inicial"
+                        type="calender"
+                        label="COM_VEHICULO_VERSION_FECHAINICIAL_LABEL"
+                        description="COM_VEHICULO_VERSION_FECHAINICIAL_DESC"
+                        class="mycalendar"
+                        format="%d-%m-%Y"
+                        default=""
+                />
+                  <field
+                        name="fecha_final"
+                        type="calender"
+                        label="COM_VEHICULO_VERSION_FECHAFINAL_LABEL"
+                        description="COM_VEHICULO_VERSION_FECHAFINAL_DESC"
+                        class="mycalendar"
+                        format="%d-%m-%Y"
+                        default=""
+                />
+                <field
+                        name="kw"
+                        type="text"
+                        label="COM_VEHICULO_VERSION_KW_LABEL"
+                        description="COM_VEHICULO_VERSION_KW_DESC"
+                        size="10"
+                        class="inputbox"
+                        default=""
+                />
+                 <field
+                        name="cv"
+                        type="text"
+                        label="COM_VEHICULO_VERSION_CV_LABEL"
+                        description="COM_VEHICULO_VERSION_CV_DESC"
+                        size="10"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="cm3"
+                        type="text"
+                        label="COM_VEHICULO_VERSION_CM3_LABEL"
+                        description="COM_VEHICULO_VERSION_CM3_DESC"
+                        size="10"
+                        class="inputbox"
+                        default=""
+                />
+                <field
+                        name="ncilindros"
+                        type="text"
+                        label="COM_VEHICULO_VERSION_NCILINDROS_LABEL"
+                        description="COM_VEHICULO_VERSION_NCILINDROS_DESC"
+                        size="10"
+                        class="inputbox"
+                        default=""
+                />
+        </fieldset>
+</form>

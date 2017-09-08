@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.0" method="upgrade">
+
+        <name>COM_VEHICULO</name>
+
+        <!-- Los siguientes elementos son opcionales y sin restricciones de formato -->
+        <creationDate>Septiembre 2017</creationDate>
+        <author>Ricardo Carpintero</author>
+        <authorEmail>info@solucionesvigo.es</authorEmail>
+        <authorUrl>http://ayuda.svigo.es</authorUrl>
+        <copyright>Copyright Info</copyright>
+        <license>Licencia Info</license>
+
+        <!--  La  versión de desarrollo del componente se registra en la tabla del mismo -->
+        <version>0.1.0</version>
+
+        <!-- La descripción es opcional. Por defecto se introduce el nombre del componente -->
+        <description>COM_VEHICULO_DESCRIPTION</description>
+
+        <install> <!-- Se ejecuta en la instalación -->
+                <sql>
+                        <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+                </sql>
+        </install>
+        <uninstall> <!-- Se ejecuta en la desinstalación -->
+                <sql>
+                        <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+                </sql>
+        </uninstall>
+        <update> <!-- Se ejecuta en la actualización; Nuevo en 2.5 -->
+                <schemas>
+                        <schemapath type="mysql">sql/updates/mysql</schemapath>
+                </schemas>
+        </update>
+
+        <!-- Archivos pertenecientes  a la interfaz de usuario -->
+        <!-- Media files -->
+		<media destination="com_vehiculo" folder="media">
+			<folder>icons</folder>
+		</media>
+
+        <!-- Nota el atributo de la carpeta: Este atributo describe hacia dónde 
+               y de donde van a ser copiados los archivos del paquete de instalación.-->
+        
+        <administration>
+                <!-- Menú de la sección de Administración -->
+                <menu>COM_VEHICULO_MENU</menu>
+                <!-- Archivos pertenecientes  a la administración -->
+                <!-- Nota el atributo de la carpeta: Este atributo describe hacia donde 
+                       y de donde van a ser copiados los archivos del paquete de instalación. -->
+                <files folder="admin">
+                        <!-- Archivos principales de la carpeta admin  -->
+                        <filename>index.html</filename>
+                        <filename>vehiculo.php</filename>
+                        <filename>controller.php</filename>
+                        <filename>roe.js</filename>
+                        <!-- Archivos de la sección de SQL -->
+                        <folder>sql</folder>
+
+                        <!-- Archivos de la Sección de las Tablas -->
+                        <folder>tables</folder>
+
+                        <!-- Archivos de la Sección de los Modelos -->
+                        <folder>models</folder>
+                        
+                        <folder>views</folder>
+                        <folder>controllers</folder>
+                        <folder>helpers</folder>
+                </files>
+         <languages folder="admin">
+               <language tag="es-ES">languages/es-ES/es-ES.com_vehiculo.ini</language>
+               <language tag="es-ES">languages/es-ES/es-ES.com_vehiculo.sys.ini</language>
+           </languages>
+        </administration>
+
+</extension>

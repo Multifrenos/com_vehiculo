@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+        <fieldset>
+                <field 
+                        name="id"
+                        type="hidden"
+                />
+                <field 
+                        name="idMarca" 
+                        type="sql" 
+                        default="" 
+                        description="COM_VEHICULO_NODELO_IDMARCA_DESC"
+                        label="COM_VEHICULO_NODELO_IDMARCA_LABEL" 
+                        query="SELECT id, nombre FROM #__vehiculo_marcas" 
+                        key_field="id" 
+                        value_field="nombre" 
+                        required="true"
+                 />
+                        
+                <field
+                        name="nombre"
+                        type="text"
+                        label="COM_VEHICULO_NODELO_NOMBRE_LABEL"
+                        description="COM_VEHICULO_NODELO_NOMBRE_DESC"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                        required="true"
+                />
+        </fieldset>
+</form>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+        <fieldset>
+                <field
+                        name="id"
+                        type="hidden"
+                />
+                <field
+                        name="nombre"
+                        type="text"
+                        label="COM_VEHICULO_MARCA_NOMBRE_LABEL"
+                        description="COM_VEHICULO_MARCA_NOMBRE_DESC"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                        required="true"
+                />
+                <field
+                        name="imagen"
+                        type="text"
+                        label="COM_VEHICULO_MARCA_IMAGEN_LABEL"
+                        description="COM_VEHICULO_MARCA_IMAGEN_DESC"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                />
+        </fieldset>
+</form>
