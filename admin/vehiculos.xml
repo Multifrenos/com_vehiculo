@@ -34,14 +34,11 @@
         </update>
 
         <!-- Archivos pertenecientes  a la interfaz de usuario -->
-        <!-- Media -->
-		<media folder="media" destination="com_vehiculo">
+        <!-- Media files -->
+		<media destination="com_vehiculo" folder="media">
 			<folder>icons</folder>
 		</media>
-        
-        
-        
-        
+
         <!-- Nota el atributo de la carpeta: Este atributo describe hacia dónde 
                y de donde van a ser copiados los archivos del paquete de instalación.-->
         

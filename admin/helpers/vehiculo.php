@@ -32,14 +32,17 @@ class VehiculoHelper extends JHelperContent
             
             /* Mas opciones de gestion -> como añadir tipos de vehiculos, tipos combustible */
             JSubMenuHelper::addEntry('<h2 class="nav-header">Tablas de Maestras</h2>');
-            JSubMenuHelper::addEntry('Tipos de vehiculos');
+            
+            JSubMenuHelper::addEntry('Tipos de vehiculos', 'index.php?option=com_vehiculo&view=vehiculotipos&extension=com_vehiculo', $submenu == 'vehiculotipos');
 
-            JSubMenuHelper::addEntry('Tipos de combustible');
+            JSubMenuHelper::addEntry('Tipos de combustible','index.php?option=com_vehiculo&view=combustibles&extension=com_vehiculo', $submenu == 'combustibles');
            
             /* Mas opciones para importar tablas */
 
-			JSubMenuHelper::addEntry('<h2 class="nav-header">Herramientas</h2>');
+			JSubMenuHelper::addEntry('<h2 class="nav-header">Herramientas y otros</h2>');
             JSubMenuHelper::addEntry('Importar tablas');
+            JSubMenuHelper::addEntry('Cruces Virtuemart y vehiculos','index.php?option=com_vehiculo&view=virtuemartcruces&extension=com_vehiculo', $submenu == 'virtuemartcruces');
+
 
         }
 }

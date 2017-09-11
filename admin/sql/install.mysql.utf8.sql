@@ -61,5 +61,11 @@ INSERT INTO `#__vehiculo_combustibles` (nombre) VALUES
 ('Eléctrico'), 
 ('Mezcla motor 2 tiempos');
 
-
+CREATE TABLE `#__vehiculo_cruces_virtuemart` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `idproduct` INT(11) NOT NULL,
+  `idvehiculo_version` INT(11) NOT NULL,
+  `fecha_actualizacion` DATE,
+   PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 

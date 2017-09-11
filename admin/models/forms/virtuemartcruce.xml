@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+        <fieldset>
+                <field
+                        name="id"
+                        type="hidden"
+                />
+                <field
+                        name="idproduct"
+                        type="text"
+                        label="COM_VEHICULO_CRUCE_VIRTUEMART_IDPRODUCT_LABEL"
+                        description="COM_VEHICULO_CRUCE_VIRTUEMART_PRODUCT_DESC"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                        required="true"
+                />
+                 <field
+                        name="idvehiculo_version"
+                        type="text"
+                        label="COM_VEHICULO_CRUCE_VIRTUEMART_IDVERSION_VEHICULO_LABEL"
+                        description="COM_VEHICULO_CRUCE_VIRTUEMART_IDVERSION_VEHICULO_DESC"
+                        size="40"
+                        class="inputbox"
+                        default=""
+                        required="true"
+                />
+                <field
+                        name="fecha_actualizacion"
+                        type="calender"
+                        label="COM_VEHICULO_VERSION_FECHAFINAL_LABEL"
+                        description="COM_VEHICULO_VERSION_FECHAFINAL_DESC"
+                        class="mycalendar"
+                        format="%d-%m-%Y"
+                        default=""
+                />
+                
+        </fieldset>
+</form>
