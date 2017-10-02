@@ -40,8 +40,8 @@ class VehiculoHelper extends JHelperContent
             /* Mas opciones para importar tablas */
 
 			JSubMenuHelper::addEntry('<h2 class="nav-header">Herramientas y otros</h2>');
-            JSubMenuHelper::addEntry('Importar tablas');
-            JSubMenuHelper::addEntry('Cruces Virtuemart y vehiculos','index.php?option=com_vehiculo&view=virtuemartcruces&extension=com_vehiculo', $submenu == 'virtuemartcruces');
+            JSubMenuHelper::addEntry('Importar tablas','index.php?option=com_vehiculo&view=importar&extension=com_vehiculo', $submenu == 'importar');
+            JSubMenuHelper::addEntry('Productos Virtuemart y vehiculos','index.php?option=com_vehiculo&view=virtuemartcruces&extension=com_vehiculo', $submenu == 'virtuemartcruces');
 
 
         }

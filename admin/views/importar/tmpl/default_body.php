@@ -1,0 +1,12 @@
+<?php
+// No permitir el acceso directo al archivo
+defined('_JEXEC') or die('Restricted Access');
+?>
+<?php foreach($this->items as $i => $item): ?>
+        <tr class="row<?php echo $i % 2; ?>">
+			<td>
+					<?php echo 'HOLA MUNDO' ?>
+			</td>
+			
+        </tr>
+<?php endforeach; ?>
