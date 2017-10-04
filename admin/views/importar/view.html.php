@@ -9,7 +9,7 @@ defined('_JEXEC') or die;
  * Vista Vehiculos Marcas  */
 class VehiculoViewImportar extends JViewLegacy
 {
-        protected $nombre_tablas;
+        //~ protected $nombre_tablas;
 //~ 
 		//~ protected $pagination;
 //~ 
@@ -22,20 +22,15 @@ class VehiculoViewImportar extends JViewLegacy
          */
         public function display($tpl = null) 
         {
-                
-                
-                
-                
-                
-                //~ if ($_REQUEST['task'] == 'add'):
-					//~ echo ' Ahora debería cargar el marca y edit';
-					//~ 
-				//~ endif;
-				//~ 
-                
-                
-				$this->tablas		= $this->get('Tablas');
-				//~ $this->pagination	= $this->get('Pagination');
+                // Obtenemos los nombres de las tabla que vamos importa
+                $ObtenerTablas		= $this->get('Tablas');
+				if (count($ObtenerTablas['Num_tablas'])>0){
+				// Esto siempre debería se superior.Ya siempre debería haber tablas de vehiculos.
+				$this->tablas	= $ObtenerTablas['tablas'];
+				} 
+				//~ echo '<pre>';
+				//~ print_r($ObtenerTablas);
+				//~ echo '</pre>';
 				//~ $this->state		= $this->get('State');
 
 				/* Cargamos Submenu y con el parametro 'marcas' indicamos que está seleccionada*/

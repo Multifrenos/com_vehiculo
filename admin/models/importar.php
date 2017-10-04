@@ -22,33 +22,29 @@ class VehiculoModelImportar extends JModelList
         public function getTablas()
 
         {
-                // Cree un objeto de consulta nueva.           
+				// @ Objetivo es obtener las tablas que necesitamos en vehiculos,
+				// para indicar campos necesita para importar.
 				$resultado = array();
 				$db = JFactory::getDBO();
-				$query = "SHOW TABLES FROM JCcoches";
-				$db->setQuery($query);
-				$db->query();
-				//~ $num_rows = $db->getNumRows();
-				//~ print_r($num_rows);
-				$result = $db->loadRowList();
+				// Obtenemos el nombre del Base Datos...
+				$config = JFactory::getConfig();
+				// Obtenemos el listado de tablas de la BD
+				$listatablas = $db->getTableList();
+				$resultado['Prefijo'] = $config->get('dbprefix');
 				$i= 0;
-				$buscar = 'vehiculo_';
-				foreach ($result as $nombretabla){
-					if (strpos($nombretabla[0], $buscar)){
-						$resultado['tablas'][]= $nombretabla[0];
+				$buscar =$resultado['Prefijo'].'vehiculo_';
+				//~ $buscar ='vehiculo_';
+				foreach ($listatablas as $nombretabla){
+					$posicion= strpos($nombretabla, $buscar);
+					$len = strlen($buscar);
+					if ( $posicion === 0){
+						$resultado['tablas'][]['nombre_tabla']=substr($nombretabla,-($posicion-$len));
 						$i ++;
 					}
 				}
-				
-				
-				
-				
-				//~ $result = $db->loadAssocList();
-				//~ echo '<pre>';
-				//~ print_r($db);
-				//~ echo '</pre>';
 				$resultado['Num_tablas'] = $i;
-				$resultado['Prefijo'] = $prefix;
+				//~ $resultado['ListaTablas'] =$listatablas;
+				
 				return $resultado;
         }
         

@@ -5,6 +5,9 @@ defined('_JEXEC') or die('Restricted Access');
 
 <tr>
         <th width="5">
+                <?php echo JText::_('COM_VEHICULO_MARCA_HEADING_SELECCIONAR'); ?>
+        </th>
+        <th width="5">
                 <?php echo JText::_('COM_VEHICULO_MARCA_HEADING_ID'); ?>
         </th>
         <th width="5">
@@ -13,7 +16,5 @@ defined('_JEXEC') or die('Restricted Access');
         <th width="5">
                 <?php echo JText::_('COM_VEHICULO_MARCA_HEADING_IMAGEN'); ?>
         </th>
-        <th width="5">
-                <?php echo JText::_('COM_VEHICULO_MARCA_HEADING_SELECCIONAR'); ?>
-        </th>
+        
 </tr>

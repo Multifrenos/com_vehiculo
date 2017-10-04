@@ -7,15 +7,16 @@ defined('_JEXEC') or die;
 JHtml::_('bootstrap.tooltip');
 JHtml::_('behavior.multiselect');
 JHtml::_('formbehavior.chosen', 'select');
-echo '<pre>';
-$mimodelo = $this->getModel();
-print_r($mimodelo->context);
-//~ echo $prefix;
-echo '</pre>'
 
 
 ?>
+<h2>Importación de tablas a componente vehiculos</h2>
+<p>El proceso importación consiste en eliminar todos los datos que contiene el componentes y subir unos nuevos.</p>
+<p>Este proceso no funciona, lo hice fue importar SQl desde phpmyadmin creando <b>copia tabla en BDVehiculos</b> con el prefijo de instalacion.</p>
+<p>Selecciona el fichero que vas subir para importar.</p>
+
 <form action="<?php echo JRoute::_('index.php?option=com_vehiculo'); ?>" method="post" name="adminForm"  id="adminForm">
+        
         <table class="table table-striped">
                 <thead><?php echo $this->loadTemplate('head');?></thead>
                 <tfoot><?php echo $this->loadTemplate('foot');?></tfoot>
