@@ -16,15 +16,18 @@ JFactory::getDocument()->addScriptDeclaration("
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_vehiculo&layout=edit&id='.(int) $this->item->id); ?>"
       method="post" name="adminForm" id="nodelo-form" class="form-validate">
-        <fieldset class="adminform">
-                <legend><?php echo JText::_( 'Detalles del modelo' ); ?></legend>
-                <ul class="adminformlist">
-<?php foreach($this->form->getFieldset() as $field): ?>
-                        <li><?php echo $field->label;echo $field->input;?></li>
-<?php endforeach; ?>
-
-                </ul>
-        </fieldset>
+        <div class="form-horizontal">
+		<legend><?php echo JText::_( 'Detalles del modelo' ); ?></legend>
+		<?php foreach($this->form->getFieldset() as $field): ?>
+			<div class="control-group">
+				<div class="control-label">
+					<?php echo $field->label;?>     
+				</div>
+				<div class="controls">
+					<?php echo $field->input;?>
+				</div>
+		<?php endforeach; ?>
+        </div>
         <div>
             
             
