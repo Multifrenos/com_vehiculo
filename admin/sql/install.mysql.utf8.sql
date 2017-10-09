@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS `#__vehiculo_marcas`;
 CREATE TABLE `#__vehiculo_marcas` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(25) NOT NULL,
-  `imagen` VARCHAR(25) NOT NULL,
+  `logo` VARCHAR(900) NOT NULL,
    PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 

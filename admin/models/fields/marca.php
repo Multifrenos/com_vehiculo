@@ -64,7 +64,7 @@ class JFormFieldMarca extends JFormFieldList
 		{
 			foreach($messages as $message) 
 			{
-				$options[] = JHtml::_('select.option', $message->id, $message->nombre, $message->imagen);
+				$options[] = JHtml::_('select.option', $message->id, $message->nombre, $message->logo);
 			}
 		}
 		$options = array_merge(parent::getOptions(), $options);

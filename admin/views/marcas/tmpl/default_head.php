@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted Access');
                 <?php echo JText::_('COM_VEHICULO_MARCA_HEADING_MARCA'); ?>
         </th>
         <th width="5">
-                <?php echo JText::_('COM_VEHICULO_MARCA_HEADING_IMAGEN'); ?>
+                <?php echo JText::_('COM_VEHICULO_MARCA_HEADING_LOGO'); ?>
         </th>
         
 </tr>

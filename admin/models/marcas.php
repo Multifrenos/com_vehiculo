@@ -21,7 +21,7 @@ class VehiculoModelMarcas extends JModelList
                 $db = JFactory::getDBO();
                 $query = $db->getQuery(true);
                 // Seleccione algunos campos
-                $query->select('id,nombre,imagen');
+                $query->select('id,nombre,logo');
                 $query->from('#__vehiculo_marcas');
                 return $query;
         }

@@ -2,27 +2,24 @@
 <form>
         <fieldset>
                 <field
-                        name="id"
-                        type="hidden"
+					name="id"
+					type="hidden"
                 />
                 <field
-                        name="nombre"
-                        type="text"
-                        label="COM_VEHICULO_MARCA_NOMBRE_LABEL"
-                        description="COM_VEHICULO_MARCA_NOMBRE_DESC"
-                        size="40"
-                        class="inputbox"
-                        default=""
-                        required="true"
+					name="nombre"
+					type="text"
+					label="COM_VEHICULO_MARCA_NOMBRE_LABEL"
+					description="COM_VEHICULO_MARCA_NOMBRE_DESC"
+					size="40"
+					class="inputbox"
+					default=""
+					required="true"
                 />
                 <field
-                        name="imagen"
-                        type="text"
-                        label="COM_VEHICULO_MARCA_IMAGEN_LABEL"
-                        description="COM_VEHICULO_MARCA_IMAGEN_DESC"
-                        size="40"
-                        class="inputbox"
-                        default=""
-                />
+					name="logo"
+					type="media"
+					label="COM_VEHICULO_MARCA_LOGO_LABEL"
+					description="COM_VEHICULO_MARCA_LOGO_DESC"
+				/>
         </fieldset>
 </form>

@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted Access');
                         <?php echo $item->nombre; ?>
                 </td>
                 <td>
-                        <?php echo $item->imagen; ?>
+                        <?php echo $item->logo; ?>
                 </td>
                
         </tr>
