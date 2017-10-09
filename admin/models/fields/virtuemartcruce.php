@@ -55,7 +55,7 @@ class JFormFieldVirtuemartcruce extends JFormFieldList
 	{
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id,nombre');
+		$query->select('id', 'recambio_id', 'version_vehiculo_id', 'virtuemart_product_id', 'fecha_actualizacion');
 		$query->from('#__vehiculo_cruces_virtuemart');
 		$db->setQuery((string)$query);
 		$messages = $db->loadObjectList();
