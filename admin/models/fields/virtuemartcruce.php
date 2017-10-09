@@ -64,7 +64,7 @@ class JFormFieldVirtuemartcruce extends JFormFieldList
 		{
 			foreach($messages as $message) 
 			{
-				$options[] = JHtml::_('select.option', $message->id, $message->idProducts,$message->idvehiculo_version,$message->fecha_actualizacion);
+				$options[] = JHtml::_('select.option', $message->id, $message->virtuemart_product_id,$message->version_vehiculo_id,$message->recambio_id,$message->fecha_actualizacion);
 			}
 		}
 		$options = array_merge(parent::getOptions(), $options);

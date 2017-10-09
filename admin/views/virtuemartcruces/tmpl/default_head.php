@@ -5,13 +5,15 @@ defined('_JEXEC') or die('Restricted Access');
 
 <tr>
         <th width="5">
-                <?php echo JText::_('COM_VEHICULO_MARCA_HEADING_ID'); ?>
+                <?php echo JText::_('COM_VEHICULO_CRUCE_VIRTUEMART_HEADING_PRODUCT'); ?>
         </th>
         <th width="5">
-                <?php echo JText::_('COM_VEHICULO_MARCA_HEADING_MARCA'); ?>
+                <?php echo JText::_('COM_VEHICULO_CRUCE_VIRTUEMART_HEADING_VERSION_VEHICULO'); ?>
         </th>
-       
+		<th width="5">
+                <?php echo JText::_('COM_VEHICULO_CRUCE_VIRTUEMART_HEADING_FECHA_ACTUALIZACION'); ?>
+        </th>
         <th width="5">
-                <?php echo JText::_('COM_VEHICULO_MARCA_HEADING_SELECCIONAR'); ?>
+                <?php echo JText::_('COM_VEHICULO_CRUCE_VIRTUEMART_HEADING_SELECCIONAR'); ?>
         </th>
 </tr>
