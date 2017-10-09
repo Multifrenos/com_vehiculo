@@ -17,7 +17,7 @@ class VehiculoViewNodelos extends JViewLegacy
         {
                 $basedatos = JFactory::getDBO();
                 $consulta = $basedatos->getQuery(true);
-                $consulta->select('id,nombre,imagen');
+                $consulta->select('id,nombre,logo');
                 $consulta->from('#__vehiculo_marcas');
 
                 $basedatos->setQuery((string)$consulta);
