@@ -37,9 +37,9 @@ class VehiculoViewMarcas extends JViewLegacy
 				/* Cargamos Submenu y con el parametro 'marcas' indicamos que está seleccionada*/
 				
 				// Si no existe task entonce podemos carga el submenu
-                if (!isset ($_REQUEST['task'])):
+                //~ if (!isset ($_REQUEST['task'])):
 				VehiculoHelper::addSubmenu('marcas');
-				endif;
+				//~ endif;
                
                 // Obtener los datos desde el modelo
                 //~ $items = $this->get('Items');

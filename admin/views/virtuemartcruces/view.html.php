@@ -9,11 +9,11 @@ defined('_JEXEC') or die;
  * Vista Vehiculos Marcas  */
 class VehiculoViewVirtuemartcruces extends JViewLegacy
 {
-        protected $items;
+        //~ protected $items;
 
-		protected $pagination;
+		//~ protected $pagination;
 
-		protected $state;
+		//~ protected $state;
 
         
         /**
@@ -36,13 +36,15 @@ class VehiculoViewVirtuemartcruces extends JViewLegacy
 
 				/* Cargamos Submenu y con el parametro 'marcas' indicamos que está seleccionada*/
 				
-				// Si no existe task entonce podemos carga el submenu
-                if (!isset ($_REQUEST['task'])):
+				// Mostramos el submenu
 				VehiculoHelper::addSubmenu('virtuemartcruces');
-				endif;
+
                
                 // Obtener los datos desde el modelo
                 //~ $items = $this->get('Items');
+                
+                
+                
                 //~ $pagination = $this->get('Pagination');
 
                 
@@ -73,9 +75,9 @@ class VehiculoViewVirtuemartcruces extends JViewLegacy
                 // Ponemos el nombre del titulo de la vista y el icono que seleccionemos.
                 // El icono es uno que tenemos en la carpeta /media/com_vehiculo 
 			    JToolbarHelper::title(JText::_('Cruces de productos de virtuemart con Vehiculos'),'joomla');
-                JToolbarHelper::deleteList('', 'virtuemartcruces.delete');
-                JToolbarHelper::editList('virtuemartcruces.edit');
-                JToolbarHelper::addNew('virtuemartcruces.add');
+                JToolbarHelper::deleteList('', 'virtuemartcruce.delete');
+                JToolbarHelper::editList('virtuemartcruce.edit');
+                JToolbarHelper::addNew('virtuemartcruce.add');
                 
                 
         }
