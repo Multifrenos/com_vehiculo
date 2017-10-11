@@ -21,9 +21,10 @@ class VehiculoModelVirtuemartcruces extends JModelList
                 $db = JFactory::getDBO();
                 $query = $db->getQuery(true);
                 // Seleccione algunos campos
-                $query->select('id', 'recambio_id', 'version_vehiculo_id', 'virtuemart_product_id', 'fecha_actualizacion');
+                $query->select('id','version_vehiculo_id','virtuemart_product_id','fecha_actualizacion'); 
                 $query->from('#__vehiculo_cruces_virtuemart');
                 return $query;
+                
         }
         
         

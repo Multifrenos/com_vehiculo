@@ -17,7 +17,7 @@ class VehiculoControllerMarcas extends JControllerAdmin
          */
 
          
-        public function getModel($name = 'marca', $prefix = 'VehiculoModel') 
+        public function getModel($name = 'Marca', $prefix = 'VehiculoModel') 
         {
         
                 $model = parent::getModel($name, $prefix, array('ignore_request' => true));

@@ -2,7 +2,7 @@
 // No permitir el acceso directo al archivo
 defined('_JEXEC') or die('Restricted access');
 // Importar biblioteca modellist de Joomla
-jimport('joomla.application.component.modellist');
+//~ jimport('joomla.application.component.modellist');
 /**
  * NodeloList Model
  */

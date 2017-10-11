@@ -1,10 +1,11 @@
 <?php
 // No permitir acceso directo al archivo
 defined('_JEXEC') or die;
- 
+//~ jimport('joomla.application.component.controlleradmin');
+
 // Entra en este controlador si los indicamos en view marcas, sino entra.
 /**
- *Controlador de vehicutipos
+ *Controlador de Virtuemartcruces
  */
 class VehiculoControllerVirtuemartcruces extends JControllerAdmin
 {
@@ -17,31 +18,12 @@ class VehiculoControllerVirtuemartcruces extends JControllerAdmin
          */
 
          
-        public function getModel($name = 'virtuemartcruce', $prefix = 'VehiculoModel') 
+        public function getModel($name = 'Virtuemartcruce', $prefix = 'VehiculoModel') 
         {
         
                 $model = parent::getModel($name, $prefix, array('ignore_request' => true));
                 return $model;
         }
 
-		public function addNew()
-		{
-		echo 'algo';
-		// Get the input
-		$input = JFactory::getApplication()->input;
-		$pks = $input->post->get('cid', array(), 'array');
- 
-		// Sanitize the input
-		JArrayHelper::toInteger($pks);
- 
-		// Get the model
-		$model = $this->getModel();
- 
-		$return = $model->vehiculo($pks);
- 
-		// Redirect to the list screen.
-		$this->setRedirect(JRoute::_('index.php?option=com_vehiculo&view=virtuemartcruces', false));
- 
-		}
-
+}
 

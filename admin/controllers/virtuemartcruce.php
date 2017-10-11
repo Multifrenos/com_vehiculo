@@ -3,10 +3,10 @@
 defined('_JEXEC') or die('Restricted access');
  
 // Importar librería de controladores de formulario de Joomla
-jimport('joomla.application.component.controllerform');
+//~ jimport('joomla.application.component.controllerform');
  
 /**
- *Controlador PruebaSimon
+ *Controlador Virtuemartcruce
  */
 class VehiculoControllerVirtuemartcruce extends JControllerForm
 {
@@ -22,7 +22,7 @@ class VehiculoControllerVirtuemartcruce extends JControllerForm
 		// Get the model
 		$model = $this->getModel();
  
-		$return = $model->vehiculo($pks);
+		$return = $model->virtuemartcruce($pks);
  
 		// Redirect to the list screen.
 		$this->setRedirect(JRoute::_('index.php?option=com_vehiculo&view=virtuemartcruces', false));

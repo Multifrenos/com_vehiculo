@@ -5,19 +5,11 @@
                         name="id"
                         type="hidden"
                 />
-                <field
-                        name="virtuemart_product_id"
-                        type="text"
-                        label="COM_VEHICULO_CRUCE_VIRTUEMART_IDPRODUCT_LABEL"
-                        description="COM_VEHICULO_CRUCE_VIRTUEMART_PRODUCT_DESC"
-                        size="40"
-                        class="inputbox"
-                        default=""
-                        required="true"
-                />
+                
                  <field
                         name="version_vehiculo_id"
-                        type="text"
+                        type="text" 
+                        default="" 
                         label="COM_VEHICULO_CRUCE_VIRTUEMART_IDVERSION_VEHICULO_LABEL"
                         description="COM_VEHICULO_CRUCE_VIRTUEMART_IDVERSION_VEHICULO_DESC"
                         size="40"
@@ -25,11 +17,11 @@
                         default=""
                         required="true"
                 />
-                 <field
-                        name="recambio_id"
+                <field
+                        name="virtuemart_product_id"
                         type="text"
-                        label="COM_VEHICULO_CRUCE_VIRTUEMART_IDRECAMBIO_VEHICULO_LABEL"
-                        description="COM_VEHICULO_CRUCE_VIRTUEMART_IDRECAMBIO_VEHICULO_DESC"
+                        label="COM_VEHICULO_CRUCE_VIRTUEMART_IDPRODUCT_LABEL"
+                        description="COM_VEHICULO_CRUCE_VIRTUEMART_PRODUCT_DESC"
                         size="40"
                         class="inputbox"
                         default=""

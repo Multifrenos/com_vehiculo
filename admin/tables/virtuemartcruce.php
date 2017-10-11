@@ -6,9 +6,9 @@ defined('_JEXEC') or die;
 //~ jimport('joomla.database.table');
 
 /**
- * Clase Vehiculo Table Marca
+ * Clase Vehiculo Table Cruces con virtuemart
  */
-class VehiculoTableVirtuemartCruce extends JTable
+class VehiculoTableVirtuemartcruce extends JTable
 {
         /**
          * Constructor
@@ -17,6 +17,6 @@ class VehiculoTableVirtuemartCruce extends JTable
          */
         function __construct(&$db) 
         {
-                parent::__construct('#__vehiculo_crucevehiculos', 'id', $db);
+                parent::__construct('#__vehiculo_cruces_virtuemart', 'id', $db);
         }
 }
