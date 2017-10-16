@@ -11,7 +11,12 @@ JHtml::_('formbehavior.chosen', 'select');
 
 ?>
 <h2>Importación de tablas a componente vehiculos</h2>
-<p>El proceso importación consiste en eliminar todos los datos que contiene el componentes y subir unos nuevos.</p>
+<p>Al pulsar INSERTAR desde BDVehiculos lo que realiza es:</p>
+<ul>
+<li> Eliminar los datos que existan en esas tablas [CONFIGURACION]</li>
+<li> Insertar los datos de la tablas de BDVehiculos(*)</li>
+</ul>
+<p>(*) Deberia ser una subida de un fichero (SQL) cosa que ahora no hacemos..</p>
 <p>Este proceso no funciona, lo hice fue importar SQl desde phpmyadmin creando <b>copia tabla en BDVehiculos</b> con el prefijo de instalacion.</p>
 <p>Selecciona el fichero que vas subir para importar.</p>
 

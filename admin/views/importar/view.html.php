@@ -57,7 +57,7 @@ class VehiculoViewImportar extends JViewLegacy
                 //~ $this->pagination = $pagination;
 
                 // Establecer la barra de herramientas
-                //~ $this->addToolBar();
+                $this->addToolBar();
                 
                 // Mostrar la plantilla
                 parent::display($tpl);
@@ -71,8 +71,8 @@ class VehiculoViewImportar extends JViewLegacy
 				// Funcion que añade, titulo pagina y bottones superiores de añadir, edit y borrar.
                 // Ponemos el nombre del titulo de la vista y el icono que seleccionemos.
                 // El icono es uno que tenemos en la carpeta /media/com_vehiculo 
-			    //~ JToolbarHelper::title(JText::_('Cruces de productos de virtuemart con Vehiculos'),'joomla');
-                //~ JToolbarHelper::deleteList('', 'virtuemartcruces.delete');
+			    JToolbarHelper::title(JText::_('Cruces de productos de virtuemart con Vehiculos'),'joomla');
+                JToolBarHelper::custom('importar.insertar', 'insertar.png', 'insertar_f2.png', 'Insertar tabla', true);
                 //~ JToolbarHelper::editList('virtuemartcruces.edit');
                 //~ JToolbarHelper::addNew('virtuemartcruces.add');
                 

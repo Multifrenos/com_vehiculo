@@ -47,7 +47,55 @@ class VehiculoModelImportar extends JModelList
 				
 				return $resultado;
         }
-        
+		public function insertar($ids){
+			//$id es un array con los id de las tablas seleccionadas
+			$db = JFactory::getDBO();
+
+			$ObtenerTablas = $this->getTablas();
+			$prefijo = $ObtenerTablas['Prefijo'];
+			$tablas = $ObtenerTablas['tablas'];
+			foreach($tablas as $i =>$tabla){ 
+				foreach ($ids as $id){
+					
+
+					if ( $i === $id){
+						// Primero eliminamos por si tiene datos.
+						// lo ideal sería poder tener un parametro ( opciones  de esta vista ) donde se le indique si se hace o no
+						// ahora de momento lo hago siempre.
+						// Aunque realmente lo antes debería cambiar el sistema , ya que nadie tendra acceso a la BD Vehiculos.
+						$sql = 'DELETE FROM .'.$prefijo.'vehiculo_'.$tabla['nombre_tabla'];
+						$db->setQuery($sql);
+						$db->execute();
+						$sql = '';
+						switch ($tabla['nombre_tabla']) {
+							case 'marcas':
+								$sql = 'INSERT INTO JCcoches.'.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' (`id`, `nombre`, `logo`) SELECT `id`, `nombre`, `imagen` FROM vehiculos.`vehiculo_marcas`';
+								break;
+							case 'modelos':
+								$sql= 'INSERT INTO JCcoches.'.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' (`id`, `idMarca`, `nombre`) SELECT `id`, `idMarca`, `nombre` FROM vehiculos.`vehiculo_modelos`';
+								break;
+							
+							case 'versiones':
+								$sql= 'INSERT INTO JCcoches.'.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' (`id`, `idMarca`, `idModelo`, `nombre`, `idTipo`, `idCombustible`, `fecha_inicial`, `fecha_final`, `kw`, `cv`, `cm3`, `ncilindros`) SELECT `id`, `idMarca`, `idModelo`, `nombre`, `idTipo`, `idCombustible`, `fecha_inicial`, `fecha_final`, `kw`, `cv`, `cm3`, `ncilindros` FROM vehiculos.`vehiculo_versiones`';
+								break;
+							
+							case 'cruces_virtuemart':
+								$sql = 'INSERT INTO JCcoches.'.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' ( `recambio_id`, `version_vehiculo_id`, `virtuemart_product_id`, `fecha_actualizacion`) SELECT  `RecambioID`, `VersionVehiculoID`, `idVirtuemart`, `FechaActualiza` FROM recambios.`cruces_vehiculos`';
+								break;
+						}
+						
+						$db->setQuery($sql);
+						$db->execute();
+						error_log ('tabla:'.$sql);
+					}
+				}
+			}
+			//~ print_r($this);
+			
+			return true;
+			
+		}
+
         
         
 }

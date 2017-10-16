@@ -24,9 +24,8 @@ class VehiculoControllerImportar extends JControllerAdmin
                 return $model;
         }
 
-		public function addNew()
+		public function insertar()
 		{
-		echo 'algo';
 		// Get the input
 		$input = JFactory::getApplication()->input;
 		$pks = $input->post->get('cid', array(), 'array');
@@ -37,7 +36,7 @@ class VehiculoControllerImportar extends JControllerAdmin
 		// Get the model
 		$model = $this->getModel();
  
-		$return = $model->vehiculo($pks);
+		$return = $model->insertar($pks);
  
 		// Redirect to the list screen.
 		$this->setRedirect(JRoute::_('index.php?option=com_vehiculo&view=importar', false));
@@ -45,3 +44,4 @@ class VehiculoControllerImportar extends JControllerAdmin
 		}
 
 
+}
