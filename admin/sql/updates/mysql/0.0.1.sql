@@ -3,14 +3,14 @@ CREATE TABLE `#__vehiculo_marcas` (
   `nombre` VARCHAR(25) NOT NULL,
   `logo` VARCHAR(900) NOT NULL,
    PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `#__vehiculo_modelos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `idMarca` INT(11) NOT NULL,
   `nombre` VARCHAR(25) NOT NULL,
    PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `#__vehiculo_versiones` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -27,13 +27,13 @@ CREATE TABLE `#__vehiculo_versiones` (
   `ncilindros` INT(2) NOT NULL,
 
    PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `#__vehiculo_tipos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(25) NOT NULL,
    PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `#__vehiculo_tipos` (nombre) VALUES 
 ('Turismo'), ('Todoterreno'), ('Industrial');
@@ -44,7 +44,7 @@ CREATE TABLE `#__vehiculo_combustibles` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(25) NOT NULL,
    PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `#__vehiculo_combustibles` (nombre) VALUES 
 ('Gasolina'), 
@@ -60,7 +60,7 @@ CREATE TABLE `#__vehiculo_cruces_virtuemart` (
   `virtuemart_product_id` INT(11) NOT NULL,
   `fecha_actualizacion` DATE,
    PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
 
 

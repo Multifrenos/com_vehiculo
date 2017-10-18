@@ -27,7 +27,7 @@ class JFormFieldVirtuemartcruce extends JFormFieldList
 	 *
 	 * @var		string
 	 */
-	protected $type = 'Marca';
+	protected $type = 'Virtuemartcruce';
 
 	/**
 	 * Method to get a list of options for a list input.
