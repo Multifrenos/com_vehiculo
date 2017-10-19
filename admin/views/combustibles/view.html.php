@@ -38,7 +38,7 @@ class VehiculoViewCombustibles extends JViewLegacy
 				
 				// Si no existe task entonce podemos carga el submenu
                 if (!isset ($_REQUEST['task'])):
-				VehiculoHelper::addSubmenu('vehiculotipos');
+				VehiculoHelper::addSubmenu('combustibles');
 				endif;
                
                 // Obtener los datos desde el modelo
