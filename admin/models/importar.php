@@ -82,6 +82,10 @@ class VehiculoModelImportar extends JModelList
 							case 'cruces_virtuemart':
 								$sql = 'INSERT INTO JCcoches.'.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' ( `recambio_id`, `version_vehiculo_id`, `virtuemart_product_id`, `fecha_actualizacion`) SELECT  `RecambioID`, `VersionVehiculoID`, `idVirtuemart`, `FechaActualiza` FROM recambios.`cruces_vehiculos`';
 								break;
+							// De momento no pongo ni combustibles , ni tipo vehiculos ya que no tiene sentido 
+							// y ademas ya los inserto en la instalación.
+							default :
+								return true;
 						}
 						
 						$db->setQuery($sql);
