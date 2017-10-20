@@ -15,59 +15,35 @@ defined('_JEXEC') or die;
 
 // import the list field type
 //~ jimport('joomla.form.helper');
-//~ JFormHelper::loadFieldClass('list');
+
+JFormHelper::loadFieldClass('list');
 
 /**
- * Vehiculo Form Field class for the Vehiculo component
+ * Marca Form Field class for the Vehiculo component
  */
 class JFormFieldMarca extends JFormFieldList
-{
+{	
 	/**
-	 * The field type.
-	 *
-	 * @var		string
-	 */
-	protected $type = 'Marca';
-
-	/**
-	 * Method to get a list of options for a list input.
-	 *
-	 * @return	array		An array of JHtml options.
-	 */
-	
-	protected function getInput()
-	{
-		$allowEdit		= ((string) $this->element['edit'] == 'true') ? true : false;
-		$allowClear		= ((string) $this->element['clear'] != 'false') ? true : false;
-
-		// Load language
-		//~ JFactory::getLanguage()->load('com_proveedor', JPATH_ADMINISTRATOR);
-
-		// Load the javascript
-		JHtml::_('bootstrap.tooltip');
-
-		
-	}
-	
-	
-	
+         * Get the list of Marcas
+         * @return Array of Options
+         */
 	protected function getOptions() 
-	{
+	{                
 		$db = JFactory::getDBO();
-		$query = $db->getQuery(true);
-		$query->select('id,nombre,imagen');
-		$query->from('#__vehiculo_marcas');
-		$db->setQuery((string)$query);
-		$messages = $db->loadObjectList();
-		$options = array();
-		if ($messages)
+		$query = $db->getQuery(true)
+                        ->select('id as value, nombre as text')
+                        ->from('#__vehiculo_marcas');
+		$db->setQuery($query);                
+                
+		try
 		{
-			foreach($messages as $message) 
-			{
-				$options[] = JHtml::_('select.option', $message->id, $message->nombre, $message->logo);
-			}
+			$options = $db->loadObjectList();                             
 		}
-		$options = array_merge(parent::getOptions(), $options);
-		return $options;
+		catch (RuntimeException $e)
+		{
+			JError::raiseWarning(500, $e->getMessage);
+		}                
+                		
+		return array_merge(parent::getOptions(), $options);
 	}
 }

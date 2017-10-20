@@ -6,7 +6,7 @@ JHtml::_('behavior.keepalive');
 JFactory::getDocument()->addScriptDeclaration("
 		Joomla.submitbutton = function(task)
 		{
-			if (task == 'noledo.cancel' || document.formvalidator.isValid(document.getElementById('nodelo-form')))
+			if (task == 'nodelo.cancel' || document.formvalidator.isValid(document.getElementById('nodelo-form')))
 			{
 				Joomla.submitform(task, document.getElementById('nodelo-form'));
 			}

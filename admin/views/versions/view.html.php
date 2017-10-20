@@ -10,71 +10,37 @@ jimport('joomla.application.component.view');
 class VehiculoViewVersions extends JViewLegacy
 {
         /**
-         *M�todoo para mostrar la vista Versions 
+         * Display method
          * @return void
          */
-        function display($tpl = null) 
-        {
-                $basedatos = JFactory::getDBO();
-                $consulta = $basedatos->getQuery(true);
-                $consulta->select('id,nombre,logo');
-                $consulta->from('#__vehiculo_marcas');
-
-                $basedatos->setQuery((string)$consulta);
-                $resultadoMarcas = $basedatos->loadObjectList();
+        function display($tpl = null)  
+        {                                
+                $this->state            = $this->get('State');
+                $this->filterForm       = $this->get('FilterForm');
+                $this->activeFilters    = $this->get('ActiveFilters');
+                $items                  = $this->get('Items');
+                $pagination             = $this->get('Pagination');               
                 
-                $basedatos = JFactory::getDBO();
-                $consulta = $basedatos->getQuery(true);
-                $consulta->select('id,idMarca,nombre');
-                $consulta->from('#__vehiculo_modelos');
-
-                $basedatos->setQuery((string)$consulta);
-                $resultadoModelos = $basedatos->loadObjectList();
+		// Check for errors.
+		if (count($errors = $this->get('Errors'))) 
+		{
+			JError::raiseError(500, implode('<br />', $errors));
+			return false;
+		}
                 
-                $basedatos = JFactory::getDBO();
-                $consulta = $basedatos->getQuery(true);
-                $consulta->select('id, nombre');
-                $consulta->from('#__vehiculo_tipos');
-
-                $basedatos->setQuery((string)$consulta);
-                $resultadoTipos = $basedatos->loadObjectList();
+		// Assign data to the view
+		$this->items = $items;                
+		$this->pagination = $pagination;                
                 
-                $basedatos = JFactory::getDBO();
-                $consulta = $basedatos->getQuery(true);
-                $consulta->select('id, nombre');
-                $consulta->from('#__vehiculo_combustibles');
-
-                $basedatos->setQuery((string)$consulta);
-                $resultadoCombustibles = $basedatos->loadObjectList();
-            
-                // Obtener los datos desde el modelo
-                $items = $this->get('Items');
-                $pagination = $this->get('Pagination');
-
-                // Verificar existencia de errores.
-                if (count($errors = $this->get('Errors'))) 
-                {
-                        JError::raiseError(500, implode('<br />', $errors));
-                        return false;
-                }
-                // Asignar los datos a la vista
-                $this->items = $items;
-                $this->todasMarcas =$resultadoMarcas;
-                $this->todosModelos =$resultadoModelos;
-                $this->todosTipos =$resultadoTipos;
-                $this->todosCombustibles =$resultadoCombustibles;
-                $this->pagination = $pagination;
-
-				/* Cargamos Submenu y con el parametro 'versiones' indicamos que está seleccionada*/
-				VehiculoHelper::addSubmenu('versiones');
+                
+                /* Cargamos Submenu y con el parametro 'versiones' indicamos que está seleccionada*/
+                VehiculoHelper::addSubmenu('versiones');
 
                 // Establecer la barra de herramientas
                 $this->addToolBar();
                 
                 // Mostrar la plantilla
-                parent::display($tpl);
-                
-                
+                parent::display($tpl);                                
         }
         
         /**
@@ -87,5 +53,5 @@ class VehiculoViewVersions extends JViewLegacy
                 JToolBarHelper::deleteList('', 'versions.delete');
                 JToolBarHelper::editList('version.edit');
                 JToolBarHelper::addNew('version.add');
-        }
+        }                
 }

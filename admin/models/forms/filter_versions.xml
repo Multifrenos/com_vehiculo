@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="filter">
+		<field
+			name="search"
+			type="text"
+			label="COM_VEHICULO_FILTER_SEARCH_LABEL_VERSION"
+			description="COM_VEHICULO_FILTER_SEARCH_DESC_VERSION"
+			hint="COM_VEHICULO_FILTER_SEARCH_LABEL_VERSION"
+		/>
+
+                <field 
+                        name="idMarca" 
+                        type="marca" 
+                        label="COM_VEHICULO_VERSION_MARCA_LABEL"   
+                        class="chzn-select"
+                        onchange="Vehiculo.updateSelect(this, 'filter_idModelo', 'nodelos'); return false;"
+                >
+                        <option value="">Seleccione una Marca</option>
+                </field>
+              
+                <field 
+                        name="idModelo" 
+                        type="modelo" 
+                        label="COM_VEHICULO_VERSION_MODELO_LABEL"   
+                        class="chzn-select"
+                        onchange="this.form.submit();"
+                        >
+                        <option value="">Seleccione un Modelo</option>
+                </field> 
+				
+	</fields>
+
+	<fields name="list">		
+            
+                <field name="fullordering" 
+                       type="hidden">
+                </field>
+		<field
+			name="limit"
+			type="limitbox"
+			label="COM_CONTENT_LIST_LIMIT"
+			description="COM_CONTENT_LIST_LIMIT_DESC"
+			class="input-mini"
+			default="25"
+			onchange="this.form.submit();"
+		/>
+	</fields>
+</form>
