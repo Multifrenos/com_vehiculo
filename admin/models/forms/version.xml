@@ -6,16 +6,25 @@
                         type="hidden"
                 />
                 
-                 <field 
+                <field 
                         name="idMarca" 
-                        type="hidden" 
-                />
+                        type="marca" 
+                        label="COM_VEHICULO_VERSION_MARCA_LABEL"   
+                        class="chzn-select"
+                        onchange="Vehiculo.updateSelect(this, 'jform_idModelo', 'nodelos');"
+                        required="true">
+                        <option value="">COM_VEHICULO_SELECT_MARCA_LABEL</option>
+                </field>
+              
+                <field 
+                        name="idModelo" 
+                        type="modelo" 
+                        label="COM_VEHICULO_VERSION_MODELO_LABEL"   
+                        class="chzn-select"
+                        required="true">
+                        <option value="">COM_VEHICULO_SELECT_MODELO_LABEL</option>
+                </field>                  
                 
-                
-                <field
-                        name="idModelo"
-                        type="hidden"
-                /> 
                 <field
                         name="nombre"
                         type="text"
@@ -35,6 +44,7 @@
                         query="SELECT * FROM #__vehiculo_tipos" 
                         key_field="id" 
                         value_field="nombre"
+                        class="chzn-select"
                         
                 />
                 <field                        
@@ -46,24 +56,25 @@
                         query="SELECT * FROM #__vehiculo_combustibles" 
                         key_field="id" 
                         value_field="nombre"
+                        class="chzn-select"
                 />
                 <field
                         name="fecha_inicial"
-                        type="calender"
+                        type="calendar"
                         label="COM_VEHICULO_VERSION_FECHAINICIAL_LABEL"
                         description="COM_VEHICULO_VERSION_FECHAINICIAL_DESC"
-                        class="mycalendar"
-                        format="%d-%m-%Y"
-                        default=""
+                        class="input-small"
+                        translateformat="true"
+                        filter="user_utc"
                 />
                   <field
                         name="fecha_final"
-                        type="calender"
+                        type="calendar"
                         label="COM_VEHICULO_VERSION_FECHAFINAL_LABEL"
                         description="COM_VEHICULO_VERSION_FECHAFINAL_DESC"
-                        class="mycalendar"
-                        format="%d-%m-%Y"
-                        default=""
+                        class="input-small"
+                        translateformat="true"
+                        filter="user_utc"
                 />
                 <field
                         name="kw"

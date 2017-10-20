@@ -2,7 +2,7 @@
 // No permitir acceso directo al archivo
 defined('_JEXEC') or die('Restricted access');
  
-// importar librería modelform de Joomla
+// importar librerï¿½a modelform de Joomla
 jimport('joomla.application.component.modeladmin');
  
 /**
@@ -11,11 +11,11 @@ jimport('joomla.application.component.modeladmin');
 class VehiculoModelVersion extends JModelAdmin
 {
         /**
-         * Devuelve una referencia al objeto Table, siempre creándolo.
+         * Devuelve una referencia al objeto Table, siempre creï¿½ndolo.
          *
          * @param       type    Tipo de tabla a instanciar
          * @param       string  Prefijo para el nombre de clase de tabla. Opcional.
-         * @param       array  Array de configuración para el modelo. Opcional.
+         * @param       array  Array de configuraciï¿½n para el modelo. Opcional.
          * @return      JTable  Objeto de base de datos
          * @since       2.5
          */
@@ -24,7 +24,7 @@ class VehiculoModelVersion extends JModelAdmin
                 return JTable::getInstance($type, $prefix, $config);
         }
         /**
-         * Método para conseguir el formulario.
+         * Mï¿½todo para conseguir el formulario.
          *
          * @param      array   $data           Datos para el formulario.
          * @param      boolean $loadData   Verdadero si el formulario va a cargar sus propios datos (por defecto), falso si no.
@@ -43,14 +43,14 @@ class VehiculoModelVersion extends JModelAdmin
                 return $form;
         }
         /**
-         * Método para obtener datos que deberían ser inyectados al formulario.
+         * Mï¿½todo para obtener datos que deberï¿½an ser inyectados al formulario.
          *
          * @return      mixed   Datos para el formulario.
          * @since       2.5
          */
         protected function loadFormData() 
         {
-                // Comprueba la sesión para comprobar datos introducidos previamente.
+                // Comprueba la sesiï¿½n para comprobar datos introducidos previamente.
                 $data = JFactory::getApplication()->getUserState('com_vehiculo.edit.version.data', array());
                 if (empty($data)) 
                 {
@@ -58,4 +58,5 @@ class VehiculoModelVersion extends JModelAdmin
                 }
                 return $data;
         }
+        	
 }
