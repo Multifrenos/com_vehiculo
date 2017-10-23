@@ -14,7 +14,7 @@ class VehiculoControllerNodelos extends JControllerAdmin
          * Proxy para getModel.
          * @desde       2.5
          */
-        public function getModel($name = 'Nodelo', $prefix = 'VehiculoModel') 
+        public function getModel($name = 'Nodelo', $prefix = 'VehiculoModel', $config = array()) 
         {
                 $model = parent::getModel($name, $prefix, array('ignore_request' => true));
                 return $model;

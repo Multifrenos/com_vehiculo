@@ -29,14 +29,16 @@ class JFormFieldModelo extends JFormFieldList {
          */
 	protected function getOptions()  {     
                 
-		$db             = JFactory::getDBO();                                
-                $idMarca        = $this->form->getField ('idMarca')->value; // Get marca from edit form
+		$db             = JFactory::getDBO();                                                             
                 $options        = array ();                
                 
-                // Get Marca from filter form
-                if (empty($idMarca)) {                        
+                // Get Marca from form or filter form
+                $fMarca         = $this->form->getField ('idMarca'); 
+                if (empty($fMarca)) {                        
                         $idMarca = $this->form->getField ('idMarca', 'filter')->value;
-                }                
+                } else {
+                        $idMarca = $this->form->getField ('idMarca')->value;
+                }       
                 
                 // Get the Marca associated to the selected model  
                 if (! empty ($idMarca)) {
