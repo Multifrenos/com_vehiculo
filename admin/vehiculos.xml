@@ -67,7 +67,7 @@
                         <folder>controllers</folder>
                         <folder>helpers</folder>
                         <folder>assets</folder>
-                        <folder>language</folder>
+                        <folder>languages</folder>
                 </files>
          <languages folder="admin">
                <language tag="es-ES">languages/es-ES/es-ES.com_vehiculo.ini</language>
