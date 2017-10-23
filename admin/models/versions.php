@@ -78,7 +78,7 @@ class VehiculoModelVersions extends JModelList
                 // Modelo filter                
                 $idModelo = $this->getState('filter.idModelo');
                 if (is_numeric($idModelo)) {
-                       $query->where('ma.id = ' . (int) $idModelo); 
+                       $query->where('mo.id = ' . (int) $idModelo); 
                 }                                
                 
                 // Add the list ordering clause.                
