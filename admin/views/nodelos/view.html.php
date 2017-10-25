@@ -13,6 +13,9 @@ class VehiculoViewNodelos extends JViewLegacy
          *Métodoo para mostrar la vista Nodelos 
          * @return void
          */
+        function display($tpl = null)  {
+
+          
           $this->state            = $this->get('State');
                 $this->filterForm       = $this->get('FilterForm');
                 $this->activeFilters    = $this->get('ActiveFilters');
