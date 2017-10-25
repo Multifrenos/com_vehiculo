@@ -34,7 +34,7 @@ class VehiculoViewVersions extends JViewLegacy
                 
                 
                 /* Cargamos Submenu y con el parametro 'versiones' indicamos que está seleccionada*/
-                VehiculoHelper::addSubmenu('versiones');
+                VehiculoHelper::addSubmenu('versions');
 
                 // Establecer la barra de herramientas
                 $this->addToolBar();
