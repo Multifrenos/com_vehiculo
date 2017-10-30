@@ -31,6 +31,8 @@ class VehiculoModelImportar extends JModelList
 				// Obtenemos el listado de tablas de la BD
 				$listatablas = $db->getTableList();
 				$resultado['Prefijo'] = $config->get('dbprefix');
+				$resultado['NombreBaseDatos'] = $config->get('db');
+
 				$i= 0;
 				$buscar =$resultado['Prefijo'].'vehiculo_';
 				//~ $buscar ='vehiculo_';
@@ -52,6 +54,7 @@ class VehiculoModelImportar extends JModelList
 			$db = JFactory::getDBO();
 
 			$ObtenerTablas = $this->getTablas();
+			$Nom_BD = $resultado['NombreBaseDatos'];
 			$prefijo = $ObtenerTablas['Prefijo'];
 			$tablas = $ObtenerTablas['tablas'];
 			foreach($tablas as $i =>$tabla){ 
@@ -69,18 +72,18 @@ class VehiculoModelImportar extends JModelList
 						$sql = '';
 						switch ($tabla['nombre_tabla']) {
 							case 'marcas':
-								$sql = 'INSERT INTO JCcoches.'.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' (`id`, `nombre`, `logo`) SELECT `id`, `nombre`, `imagen` FROM vehiculos.`vehiculo_marcas`';
+								$sql = 'INSERT INTO '.$Nom_BD.' '.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' (`id`, `nombre`, `logo`) SELECT `id`, `nombre`, `imagen` FROM vehiculos.`vehiculo_marcas`';
 								break;
 							case 'modelos':
-								$sql= 'INSERT INTO JCcoches.'.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' (`id`, `idMarca`, `nombre`) SELECT `id`, `idMarca`, `nombre` FROM vehiculos.`vehiculo_modelos`';
+								$sql= 'INSERT INTO '.$Nom_BD.' '.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' (`id`, `idMarca`, `nombre`) SELECT `id`, `idMarca`, `nombre` FROM vehiculos.`vehiculo_modelos`';
 								break;
 							
 							case 'versiones':
-								$sql= 'INSERT INTO JCcoches.'.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' (`id`, `idMarca`, `idModelo`, `nombre`, `idTipo`, `idCombustible`, `fecha_inicial`, `fecha_final`, `kw`, `cv`, `cm3`, `ncilindros`) SELECT `id`, `idMarca`, `idModelo`, `nombre`, `idTipo`, `idCombustible`, `fecha_inicial`, `fecha_final`, `kw`, `cv`, `cm3`, `ncilindros` FROM vehiculos.`vehiculo_versiones`';
+								$sql= 'INSERT INTO '.$Nom_BD.' '.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' (`id`, `idMarca`, `idModelo`, `nombre`, `idTipo`, `idCombustible`, `fecha_inicial`, `fecha_final`, `kw`, `cv`, `cm3`, `ncilindros`) SELECT `id`, `idMarca`, `idModelo`, `nombre`, `idTipo`, `idCombustible`, `fecha_inicial`, `fecha_final`, `kw`, `cv`, `cm3`, `ncilindros` FROM vehiculos.`vehiculo_versiones`';
 								break;
 							
 							case 'cruces_virtuemart':
-								$sql = 'INSERT INTO JCcoches.'.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' ( `recambio_id`, `version_vehiculo_id`, `virtuemart_product_id`, `fecha_actualizacion`) SELECT  `RecambioID`, `VersionVehiculoID`, `idVirtuemart`, `FechaActualiza` FROM recambios.`cruces_vehiculos`';
+								$sql = 'INSERT INTO '.$Nom_BD.' '.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' ( `recambio_id`, `version_vehiculo_id`, `virtuemart_product_id`, `fecha_actualizacion`) SELECT  `RecambioID`, `VersionVehiculoID`, `idVirtuemart`, `FechaActualiza` FROM recambios.`cruces_vehiculos`';
 								break;
 							// De momento no pongo ni combustibles , ni tipo vehiculos ya que no tiene sentido 
 							// y ademas ya los inserto en la instalación.

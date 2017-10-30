@@ -53,7 +53,6 @@
                         <filename>index.html</filename>
                         <filename>vehiculo.php</filename>
                         <filename>controller.php</filename>
-                        <filename>roe.js</filename>
                         <!-- Archivos de la sección de SQL -->
                         <folder>sql</folder>
 
