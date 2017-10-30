@@ -10,7 +10,7 @@ class VehiculoModelNodelos extends JModelList
 {
         
         
-        	/**
+   	/**
 	 * Constructor.
 	 *
 	 * @param   array  An optional associative array of configuration settings.
@@ -23,8 +23,9 @@ class VehiculoModelNodelos extends JModelList
 		{
 			$config['filter_fields'] = array(
 				'id', 'mo.id',
+					'modelo', 'mo.nombre',
                    	'marca', 'ma.nombre',
-                   'modelo', 'mo.nombre',
+                   
                                 
 			);
 		}
@@ -47,7 +48,7 @@ class VehiculoModelNodelos extends JModelList
                         ->select('mo.*')
                         ->select ('ma.nombre as marca')
                         ->from('#__vehiculo_modelos as mo')
-                        ->join('left', '#__vehiculo_marcas as ma ON (mo.idMarca = ma.id)')
+                        ->join('left', '#__vehiculo_marcas as ma ON (mo.idMarca = ma.id)');
                 
 
 		// Filter by search in title

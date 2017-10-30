@@ -3,60 +3,40 @@
 defined('_JEXEC') or die;
 
 // Importar la biblioteca view de Joomla
-//~ jimport('joomla.application.component.view');
+jimport('joomla.application.component.view');
 
 /**
  * Vista Vehiculos Marcas  */
 class VehiculoViewMarcas extends JViewLegacy
 {
-        protected $items;
-
-		protected $pagination;
-
-		protected $state;
-
-        
         /**
          *Métodoo para mostrar la vista 
          * @return void
          */
         public function display($tpl = null) 
         {
+                $this->state            = $this->get('State');
+				$this->filterForm       = $this->get('FilterForm');
+				$this->activeFilters    = $this->get('ActiveFilters');
+				$items                  = $this->get('Items');
+				$pagination             = $this->get('Pagination');               
                 
-                //~ if ($_REQUEST['task'] == 'add'):
-					//~ echo ' Ahora debería cargar el marca y edit';
-					//~ 
-				//~ endif;
-				//~ 
-                
-                
-				$this->items		= $this->get('Items');
-				$this->pagination	= $this->get('Pagination');
-				$this->state		= $this->get('State');
-
-				/* Cargamos Submenu y con el parametro 'marcas' indicamos que está seleccionada*/
+				// Check for errors.
+				if (count($errors = $this->get('Errors'))) 
+				{
+					JError::raiseError(500, implode('<br />', $errors));
+					return false;
+				}
+                // Assign data to the view
+				$this->items = $items;                
+				$this->pagination = $pagination;    
+                /* Cargamos Submenu y con el parametro 'marcas' indicamos que está seleccionada*/
 				
 				// Si no existe task entonce podemos carga el submenu
                 //~ if (!isset ($_REQUEST['task'])):
 				VehiculoHelper::addSubmenu('marcas');
 				//~ endif;
                
-                // Obtener los datos desde el modelo
-                //~ $items = $this->get('Items');
-                //~ $pagination = $this->get('Pagination');
-
-                
-                
-                // Verificar existencia de errores.
-                if (count($errors = $this->get('Errors'))) 
-                {
-                        JError::raiseError(500, implode('<br />', $errors));
-                        return false;
-                }
-                // Asignar los datos a la vista
-                //~ $this->items = $items;
-                //~ $this->pagination = $pagination;
-
                 // Establecer la barra de herramientas
                 $this->addToolBar();
                 
