@@ -83,7 +83,7 @@ class VehiculoModelImportar extends JModelList
 								break;
 							
 							case 'cruces_virtuemart':
-								$sql = 'INSERT INTO '.$Nom_BD.' '.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' ( `recambio_id`, `version_vehiculo_id`, `virtuemart_product_id`, `fecha_actualizacion`) SELECT  `RecambioID`, `VersionVehiculoID`, `idVirtuemart`, `FechaActualiza` FROM recambios.`cruces_vehiculos`';
+								$sql = 'INSERT INTO '.$Nom_BD.' '.$prefijo.'vehiculo_'.$tabla['nombre_tabla'].' ( `recambio_id`, `version_vehiculo_id`, `virtuemart_product_id`, `fecha_actualizacion`) SELECT  `RecambioID`, `VersionVehiculoID`, `idVirtuemart`, `FechaActualiza` FROM recambios.`cruces_vehiculos` WHERE idVirtuemart > 0';
 								break;
 							// De momento no pongo ni combustibles , ni tipo vehiculos ya que no tiene sentido 
 							// y ademas ya los inserto en la instalación.
