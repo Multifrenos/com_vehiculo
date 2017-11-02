@@ -7,7 +7,7 @@ defined('_JEXEC') or die;
 JHtml::_('bootstrap.tooltip');
 JHtml::_('behavior.multiselect');
 JHtml::_('formbehavior.chosen', 'select');
-$listOrder      = $this->escape($this->state->get('list.ordering', 'mo.id'));
+$listOrder      = $this->escape($this->state->get('list.ordering', 'ma.id'));
 $listDirn       = $this->escape($this->state->get('list.direction', 'DESC'));
 
 ?>
