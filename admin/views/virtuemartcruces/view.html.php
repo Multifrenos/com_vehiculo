@@ -3,7 +3,7 @@
 defined('_JEXEC') or die;
 
 // Importar la biblioteca view de Joomla
-//~ jimport('joomla.application.component.view');
+jimport('joomla.application.component.view');
 
 /**
  * Vista Vehiculos Marcas  */
@@ -20,20 +20,24 @@ class VehiculoViewVirtuemartcruces extends JViewLegacy
          *Métodoo para mostrar la vista 
          * @return void
          */
-        public function display($tpl = null) 
+        function display($tpl = null) 
         {
                 
-                //~ if ($_REQUEST['task'] == 'add'):
-					//~ echo ' Ahora debería cargar el marca y edit';
-					//~ 
-				//~ endif;
-				//~ 
-                
-                
-				$this->items		= $this->get('Items');
-				$this->pagination	= $this->get('Pagination');
-				$this->state		= $this->get('State');
-
+				 $this->state            = $this->get('State');
+					$this->filterForm       = $this->get('FilterForm');
+					$this->activeFilters    = $this->get('ActiveFilters');
+					$items                  = $this->get('Items');
+					$pagination             = $this->get('Pagination');               
+					
+			// Check for errors.
+			if (count($errors = $this->get('Errors'))) 
+			{
+				JError::raiseError(500, implode('<br />', $errors));
+				return false;
+			}
+			// Assign data to the view
+			$this->items = $items;                
+			$this->pagination = $pagination;    
 				/* Cargamos Submenu y con el parametro 'marcas' indicamos que está seleccionada*/
 				
 				// Mostramos el submenu
