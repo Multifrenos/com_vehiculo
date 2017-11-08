@@ -80,7 +80,11 @@ class VehiculoModelVirtuemartcruces extends JModelList
 				$query->where('(virt.product_name LIKE ' . $search . ')');
 			}
 		}                    
-
+				// Producto filter                
+                $idProductos = $this->getState('filter.idProductos');
+                if (is_numeric($idProductos)) {
+                       $query->where('cr.virtuemart_product_id = ' . (int) $idProductos); 
+                }
                 
                 // Marca filter                
                 $idMarca = $this->getState('filter.idMarca');
