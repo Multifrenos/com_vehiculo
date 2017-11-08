@@ -72,9 +72,10 @@ class VehiculoModelVirtuemartcruces extends JModelList
 			{
                                 // Search id:1234
 				$query->where('cr.id = ' . (int) substr($search, 3));
-			}
-			else
-			{
+			}elseif (stripos($search, 'id_producto:') === 0)	{
+                                // Search id:1234
+				$query->where('cr.virtuemart_product_id = ' . (int) substr($search, 12));
+			} else {
                                 // Search %abcd%
 				$search = $db->quote('%' . str_replace(' ', '%', $db->escape(trim($search), true) . '%'));
 				$query->where('(virt.product_name LIKE ' . $search . ')');
