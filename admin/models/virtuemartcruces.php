@@ -92,7 +92,12 @@ class VehiculoModelVirtuemartcruces extends JModelList
                 $idModelo = $this->getState('filter.idModelo');
                 if (is_numeric($idModelo)) {
                        $query->where('mo.id = ' . (int) $idModelo); 
-                }                                
+                }        
+                 // Modelo filter                
+                $idVersion = $this->getState('filter.idVersion');
+                if (is_numeric($idVersion)) {
+                       $query->where('v.id = ' . (int) $idVersion); 
+                }                          
                 
                 // Add the list ordering clause.                
                 $listOrder = $this->getState('list.ordering', 'cr.id');                
