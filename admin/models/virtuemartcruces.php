@@ -78,7 +78,7 @@ class VehiculoModelVirtuemartcruces extends JModelList
 			} else {
                                 // Search %abcd%
 				$search = $db->quote('%' . str_replace(' ', '%', $db->escape(trim($search), true) . '%'));
-				$query->where('(virt.product_name LIKE ' . $search . ')');
+				$query->where('virt.product_name LIKE ' . $search );
 			}
 		}                    
 				// Producto filter                

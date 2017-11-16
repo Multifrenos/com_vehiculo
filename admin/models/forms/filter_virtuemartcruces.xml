@@ -32,14 +32,14 @@
                         type="modelo" 
                         label="COM_VEHICULO_VERSION_MODELO_LABEL"   
                         class="chzn-select"
-                        onchange="Vehiculo.updateSelect(this, 'filter_idVersion', 'versions'); return false;"
+                        onchange="Vehiculo.updateSelect(this, 'filter_idVersion', 'versiones'); return false;"
                         >
                         <option value="">Seleccione un Modelo</option>
                 </field> 
                 <field 
                         name="idVersion" 
                         type="versiones" 
-                        label="COM_VEHICULO_VERSION_VERSION_LABEL"   
+                        label="COM_VEHICULO_VERSION_IDVERSION_LABEL"   
                         class="chzn-select"
                         onchange="this.form.submit();"
                         >
