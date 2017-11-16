@@ -32,7 +32,7 @@ class JFormFieldProductos extends JFormFieldList {
 		{                
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true)
-                        ->select('virtuemart_product_id as value, product_name as text')
+                        ->select('virtuemart_product_id as value,CONCAT(virtuemart_product_id," ",product_name) as text')
                         ->from('#__virtuemart_products_es_es');
 		$db->setQuery($query);                
                 
