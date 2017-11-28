@@ -5,18 +5,43 @@
                         name="id"
                         type="hidden"
                 />
+                <field 
+                        name="idProducto" 
+                        type="producto" 
+                        label="COM_VEHICULO_CRUCE_PRODUCTO_LABEL"   
+                        class="chzn-select"
+                        onchange="Vehiculo.updateSelect(this, 'jform_idModelo', 'nodelos');"
+                        required="true">
+                        <option value="">COM_VEHICULO_SELECT_MARCA_LABEL</option>
+                </field>
+                <field 
+                        name="idMarca" 
+                        type="marca" 
+                        label="COM_VEHICULO_VERSION_MARCA_LABEL"   
+                        class="chzn-select"
+                        onchange="Vehiculo.updateSelect(this, 'jform_idModelo', 'nodelos');"
+                        required="true">
+                        <option value="">COM_VEHICULO_SELECT_MARCA_LABEL</option>
+                </field>
+                <field 
+                        name="idModelo" 
+                        type="modelo" 
+                        label="COM_VEHICULO_VERSION_MODELO_LABEL"   
+                        class="chzn-select"
+                        required="true">
+                        <option value="">COM_VEHICULO_SELECT_MODELO_LABEL</option>
+                </field> 
                 
-                 <field
+                <field
                         name="version_vehiculo_id"
                         type="text" 
                         default="" 
                         label="COM_VEHICULO_CRUCE_VIRTUEMART_IDVERSION_VEHICULO_LABEL"
-                        description="COM_VEHICULO_CRUCE_VIRTUEMART_IDVERSION_VEHICULO_DESC"
-                        size="40"
-                        class="inputbox"
-                        default=""
-                        required="true"
-                />
+                        class="chzn-select"
+                        onchange="Vehiculo.updateSelect(this, 'jform_idModelo', 'nodelos');"
+                        required="true">
+                        <option value="">COM_VEHICULO_SELECT_VERSION_LABEL</option>
+                </field>
                 <field
                         name="virtuemart_product_id"
                         type="text"
