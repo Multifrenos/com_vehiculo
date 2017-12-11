@@ -32,7 +32,8 @@ class JFormFieldMarca extends JFormFieldList
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true)
                         ->select('id as value, nombre as text')
-                        ->from('#__vehiculo_marcas');
+                        ->from('#__vehiculo_marcas')
+                        ->order ('nombre ASC');
 		$db->setQuery($query);                
                 
 		try
