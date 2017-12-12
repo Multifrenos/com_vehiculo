@@ -28,30 +28,43 @@ class JFormFieldVersion extends JFormFieldList
 	 * @var		string
 	 */
 	protected $type = 'Vehiculo';
+	
+        
+        /**
+         * Get the list of options filtered by Marca
+         * @return type
+         */
+	protected function getOptions()  {     
+                
+		$db             = JFactory::getDBO();                                                             
+                $options        = array ();                
+                
+                // Get Modelo from form or filter form
+                $fModelo         = $this->form->getField ('idModelo'); 
+                if (empty($fModelo)) {                        
+                        $idModelo = $this->form->getField ('idModelo', 'filter')->value;
+                } else {
+                        $idModelo = $this->form->getField ('idModelo')->value;
+                }       
+                
+                // Get the Marca associated to the selected model  
+                if (! empty ($idModelo)) {
+                                                      
+                        $query = $db->getQuery(true)
+                                ->select('id as value, nombre as text')
+                                ->from('#__vehiculo_versiones')
+                                ->where ('idModelo = ' . (int) $idModelo);
 
-	/**
-	 * Method to get a list of options for a list input.
-	 *
-	 * @return	array		An array of JHtml options.
-	 */
-	protected function getOptions() 
-	{
-		$db = JFactory::getDBO();
-		$query = $db->getQuery(true);
-		$query->select('id,idMarca, idModelo,nombre, idTipo, idCombustible, fecha_inicial,fecha_final,kw,cv,cm3,ncilindros');
-		$query->from('#__vehiculo_versiones');
-		$db->setQuery((string)$query);
-		$messages = $db->loadObjectList();
-		$options = array();
-		if ($messages)
-		{
-			foreach($messages as $message) 
-			{
-				$options[] = JHtml::_('select.option', $message->id, $message->idMarca, $message->idModelo, $message->nombre, $message->idTipo,
-				 $message->fecha_inicial,$message->fecha_final,$message->kw,$message->cv,$message->cm3,$message->ncilindros);// al final ? ","
-			}
-		}
-		$options = array_merge(parent::getOptions(), $options);
-		return $options;
-	}
+                        $db->setQuery($query);                
+
+                        try {
+                                $options = $db->loadObjectList();                             
+                        } catch (RuntimeException $e) {
+                                JError::raiseWarning(500, $e->getMessage);
+                        }              
+                }
+                		
+		return array_merge(parent::getOptions(), $options);
+	}        
+        
 }

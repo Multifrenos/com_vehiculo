@@ -41,6 +41,24 @@ Vehiculo = window.Vehiculo || {};
                 
                 // Refresh the chosen object
                 Vehiculo.jq('#' + destinationSelect).trigger("liszt:updated"); 
+                
+                // Notify user
+                var notifyContainerId = destinationSelect + '_notify';
+                if (! document.getElementById(notifyContainerId)) {
+                    // Creating notify container if not exists
+                    var nContainer = document.createElement('div');
+                    nContainer.id = notifyContainerId;                    
+                    nContainer.style.display = 'inline'; 
+                    nContainer.style.margin = '0px 0px 0px 15px'; 
+                    Vehiculo.jq("#" + destinationSelect + '_chzn').after (nContainer);
+                }
+                
+                // Updating notify text
+                var notifyText = (rows.length) ? 'Añadidos ' + rows.length + ' elementos' : 'Sin elementos';
+                document.getElementById(notifyContainerId).innerHTML = notifyText;    
+                
+                // Display notify only for small interval
+                Vehiculo.jq('#' + notifyContainerId).show().delay(2000).fadeOut();
             }
         });                 
         

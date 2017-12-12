@@ -28,7 +28,7 @@ class VehiculoViewVirtuemartcruce extends JViewLegacy
 			JError::raiseError(500, implode('<br />', $errors));
 			return false;
 		}
-		$itemNuevo = $this->getMasDatos($item);
+		//$itemNuevo = $this->getMasDatos($item);
 		//~ echo '<pre>';
 		//~ print_r($itemNuevo);
 		//~ echo '</pre>';
@@ -55,7 +55,11 @@ class VehiculoViewVirtuemartcruce extends JViewLegacy
 		JToolBarHelper::cancel('virtuemartcruce.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
 	}
 	
+        /**
+         * @deprecated
+         */
 	public function getMasDatos($item){
+                var_dump($item); jexit ();
 			// Buscamos de vehiculo.
 			 $db = JFactory::getDBO();
 			 $id_version = $item->version_vehiculo_id;

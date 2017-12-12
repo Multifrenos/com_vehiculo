@@ -17,6 +17,24 @@ JFactory::getDocument()->addScriptDeclaration("
 //~ echo '</pre>';
 $item = $this->item;
 ?>
+<form action="<?php echo JRoute::_('index.php?option=com_vehiculo&layout=edit&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="virtuemartcruce-form" class="form-validate">
+        <div class="form-horizontal">
+                <div class="row-fluid">
+                        <div class="span12">
+                                <?php foreach ($this->form->getFieldset() as $field): ?>
+                                        <?php echo $field->getControlGroup(); ?>
+                                <?php endforeach; ?>                
+                        </div>                                                
+                </div>
+        </div>
+
+        <input type="hidden" name="task" value="virtuemartcruce.edit" />
+        <?php echo JHtml::_('form.token'); ?>
+</form>
+
+<?php 
+/*
+
 <div class="row-fluid">
 <div class="span6">
 	<form action="<?php echo JRoute::_('index.php?option=com_vehiculo&layout=edit&id='.(int) $this->item->id); ?>"
@@ -35,6 +53,8 @@ $item = $this->item;
 			</div>
 	</form>
 </div>
+
+
 <div class="span6">
 	<h2><?php echo $item->get('id').' ID CRUCE -- '.$item->get('recambio_id').' ID Recambio(Tpv) -- '.$item->get('fecha_actualizacion').' Actualizado';?> </h2>
 	<h3> Coche seleccionado - ID Version :<?php echo $item->get('version_vehiculo_id');?>	</h3>
@@ -79,4 +99,7 @@ $item = $this->item;
 		echo '</div>';
 	?>
 </div>
+
 </div>
+ * 
+ */?>

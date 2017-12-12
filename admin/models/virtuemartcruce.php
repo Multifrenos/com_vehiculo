@@ -57,4 +57,54 @@ class VehiculoModelVirtuemartcruce extends JModelAdmin
                 }
                 return $data;
         }
+        
+        
+	/**
+	 * Method to get a single record.
+	 *
+	 * @param   integer  $pk  The id of the primary key.
+	 *
+	 * @return  \JObject|boolean  Object on success, false on failure.
+	 *
+	 * @since   1.6
+	 */
+	public function getItem($pk = null)
+	{
+                $item = parent::getItem ($pk);
+                
+                // Get the idMarca and idModelo from foreig table
+                if (empty ($item->idMarca) || empty ($item->idModelo)) {
+                        $db = JFactory::getDbo ();
+                        $query = $db->getQuery (true);
+                        $query->select ('idMarca, idModelo')
+                                ->from ('#__vehiculo_versiones')
+                                ->where ('id = ' . (int) $item->version_vehiculo_id);
+                        $db->setQuery ($query);
+                        $foreignData = $db->loadObject ();
+
+                        $item->idMarca = $foreignData->idMarca;
+                        $item->idModelo = $foreignData->idModelo;
+                }
+                
+                return $item;
+        }        
+        
+        
+	/**
+	 * Method to save the form data.
+	 *
+	 * @param   array  $data  The form data.
+	 *
+	 * @return  boolean  True on success, False on error.
+	 *
+	 * @since   1.6
+	 */
+	public function save($data)
+	{                
+                $date = JFactory::getDate ();
+                $data['fecha_actualizacion'] = $date->toSql ();
+                return parent::save ($data);
+        }         
+        
+        
 }

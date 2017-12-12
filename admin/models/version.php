@@ -57,6 +57,5 @@ class VehiculoModelVersion extends JModelAdmin
                         $data = $this->getItem();
                 }
                 return $data;
-        }
-        	
+        }                      	
 }
